@@ -1,0 +1,53 @@
+#title {
+    color: white;
+    text-align: center;
+    font-size: 200%;
+}
+
+body {
+    
+    background-color: black;
+    display: block;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+textarea {
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+}
+
+#button {
+    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 200%;
+}
+
+#from {
+
+
+    
+}
+
+#to {
+
+    margin-top: 1%;
+    margin-bottom: 2%;
+
+}
+
+#ft-text {
+    color: white;
+    font-size: 150%;
+}
+
+#ft-select {
+    font-size: 100%;
+}
