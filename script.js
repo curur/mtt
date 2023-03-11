@@ -1,3 +1,5 @@
+let test = "".charCodeAt(0);
+
 const toSelect = document.getElementById("to-select");
 
 const converButton = document.getElementById("button");
@@ -15,14 +17,13 @@ converButton.onclick = function() {
     var toStr = document.getElementById("to");
 
     if(fromLang == "text" && toLang == "말딸") {
+        console.log("text - 말딸")
 
         var i;
         var result = "";
         for(i = 0; i < fromStr.value.length; i++) {
-            console.log("for loop" + i)
 
             var code = fromStr.value.charCodeAt(i).toString(2);
-            console.log(fromStr.value[i] + code)
 
             var ii;
             for(ii = 0; ii < code.length; ii++) {
@@ -39,6 +40,7 @@ converButton.onclick = function() {
         toStr.value = result;
 
     } else if(fromLang == "말딸" && toLang == "text") {
+        console.log("말딸 - text")
 
         var binary = fromStr.value.replaceAll("말", "0").replaceAll("딸", "1");
 
