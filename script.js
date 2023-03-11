@@ -1,5 +1,3 @@
-let test = "".charCodeAt(0);
-
 const toSelect = document.getElementById("to-select");
 
 const converButton = document.getElementById("button");
@@ -35,12 +33,34 @@ converButton.onclick = function() {
                     result += "말";
                 }
             }
-            result += " "
+            result += " ";
         }
+        
+        toStr.value = result;
+
+    } else if(fromLang == "말딸" && toLang == "text") {
+
+        var binary = fromStr.value.replaceAll("말", "0").replaceAll("딸", "1");
+
+        var result = "";
+
+        var i;
+        var array = binary.split(" ")
+
+        for(i = 0; i < array.length; i++) {
+
+            var binaryCode = array[i]
+            var decemalCode = parseInt(binaryCode, 2)
+            var char = String.fromCharCode(decemalCode)
+
+            result += char
+        }
+
+        toStr.value = result;
 
     }
 
-    toStr.value = result;
+    
 
     
 
