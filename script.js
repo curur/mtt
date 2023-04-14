@@ -1,72 +1,81 @@
-let test = "".charCodeAt(0);
+const changeBt = document.getElementById("changeBt");
+const convertBt = document.getElementById("convertBt");
 
-const toSelect = document.getElementById("to-select");
+const fromSel = document.getElementsByName("fromSelect")[0];
+const toSel = document.getElementsByName("toSelect")[0];
 
-const converButton = document.getElementById("button");
+const fromTa = document.getElementsByName("fromText")[0];
+const toTa = document.getElementsByName("toText")[0];
 
-converButton.onclick = function() {
+convertBt.onclick = function() {
 
-    var from = document.getElementsByName("from-lang")[0];
-    var to = document.getElementsByName("to-lang")[0];
+    var fromText = fromTa.value;
+
+    var fromLang = fromSel.options[fromSel.selectedIndex].value;
+    var toLang = toSel.options[toSel.selectedIndex].value;
+
+    var binary = "";
 
 
-    var fromLang = from.options[from.selectedIndex].value;
-    var toLang = to.options[to.selectedIndex].value;
-
-    var fromStr = document.getElementById("from");
-    var toStr = document.getElementById("to");
-
-    if(fromLang == "text" && toLang == "말딸") {
-        console.log("text - 말딸")
-
+    if(fromLang == "else") {
         var i;
-        var result = "";
-        for(i = 0; i < fromStr.value.length; i++) {
+        for(i = 0; i < fromText.length; i++) {
 
-            var code = fromStr.value.charCodeAt(i).toString(2);
+            var char = fromText.charCodeAt(i).toString(2); //이진법으로 변환
+            binary += char + " ";
 
-            var ii;
-            for(ii = 0; ii < code.length; ii++) {
-                console.log("for loop 2" + code.length + "  " + ii)
-                if(code[ii] == 1) {
-                    result += "딸";
-                } else {
-                    result += "말";
-                }
-            }
-            result += " ";
         }
-        
-        toStr.value = result;
+    } else if(fromLang == "mtt") {
 
-    } else if(fromLang == "말딸" && toLang == "text") {
-        console.log("말딸 - text")
+        binary = fromText.replaceAll("말", "0").replaceAll("딸", "1"); //말딸로 구성된 말을 이진법으로 변환
 
-        var binary = fromStr.value.replaceAll("말", "0").replaceAll("딸", "1");
-
-        var result = "";
-
-        var i;
-        var array = binary.split(" ")
-
-        for(i = 0; i < array.length; i++) {
-
-            var binaryCode = array[i]
-            var decemalCode = parseInt(binaryCode, 2)
-            var char = String.fromCharCode(decemalCode)
-
-            result += char
-        }
-
-        toStr.value = result;
-
+    } else if(fromLang == "binary") {
+        binary = fromText;
     }
 
-    
 
-    
+    if(binary == "") return;
 
-    // 말딸, 딸말, 이, text
+
+    var result = "";
+
+    if(toLang == "else") {
+        
+        var array = binary.split(" ");
+
+        var i;
+        for(i = 0; i < array.length; i++) {
+
+            var char = String.fromCharCode(parseInt(array[i], 2));
+            result += char;
+
+        }
+
+    } else if(toLang == "binary") {
+        result = binary;
+    } else if(toLang == "mtt") {
+        result = binary.replaceAll("0", "말").replaceAll("1", "딸")
+    }
+
+    toTa.value = result;
+};
+
+changeBt.onclick = function() {
+
+    var fromIndex = fromSel.selectedIndex;
+    var toIndex = toSel.selectedIndex;
+
+    fromSel.options[toIndex].selected = true;
+    toSel.options[fromIndex].selected = true;
+
+
+
+    // fromSel.val(toValue).prop("selected", true)
+    // toSel.val(fromValue).prop("selected", true)
+
+
+
+
 
 
 
