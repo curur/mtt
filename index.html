@@ -3,41 +3,49 @@
     
     <head>
         <meta charset="UTF-8">
-        <title>친구를 위한 text to 말딸말딸</title>
+        <title>mtt 번역기</title>
         <link rel="stylesheet" href="style.css">
         
     </head>
+        <div id="headerDiv">
+            <h1 id="headerTitle">mtt 번역기</h1>
+            <a href="https://github.com/curur" id="headerMader" target="_blank">made by curur</a>
+        </div> 
+    <header>
+        
 
     <body>
-
-        <h1 id="title">나의 소중한 친구 말딸유저를 위한 말딸말딸 번역기!!!</h1>    
-
-        <p id="ft-text">이 언어를!
-            <select name="from-lang" id="ft-select">
-
-                <option value="text">text</option>
-                <option value="말딸">말딸</option>
+        
+        <div id="msg">
+            
+            <select name="fromSelect" id="select">
+                <option value="else">else</option>
+                <option value="binary">binary code</option>
+                <option value="mtt">말딸!말딸!</option>
             </select>
-        </p>
 
-        <p id="ft-text">
-            이 언어로!
-            <select name="to-lang" id="ft-select">
+            <button name="changeBt" id="changeBt"><></button>
 
-                <option value="말딸">말딸</option>
-                <option value="text">text</option>
-
+            <select name="toSelect" id="select">
+                <option value="else">else</option>
+                <option value="binary">binary code</option>
+                <option value="mtt">말딸!말딸!</option>
             </select>
-        </p>
-    
-        <textarea id="from" rows="20" cols="100" style="resize: none;"></textarea>
-        <br>
-        <button id="button">말딸말딸 체인지!</button>
-        <br>
-        <textarea id="to" rows="30" cols="100" style="resize: none;" readonly></textarea>
+
+            <br>
+
+            <textarea id="TextLine" name="fromText"></textarea>
+            <br>
+            <button id="convertBt">convert</button>
+            <br>
+            <textarea id="TextLine"  name="toText" style="margin-bottom: calc((1vh + 1vh) * 5 / 2);"></textarea>
+
+        </div>
 
         <script src="script.js"></script>
-        
+
     </body>
+
+    </header>
     
 </html>
